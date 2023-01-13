@@ -21,22 +21,20 @@ foreach ($lines as $line) {
     $list[$id] = $weight;
 }
 
-// Sort by weight
+// Sort by weight and discard the weights
 asort($list);
+$list = array_keys($list);
 
-
-
-
+// Distribute to batches
+$batches = [];
+while (count($list) > 0) {
+    for ($batchIdx = 0; $batchIdx < $batchCount; $batchIdx++) {
+        $batches[$batchIdx][] = array_pop($list);
+    }
+}
 
 // Write batches
 foreach ($batches as $batchIdx => $bucket) {
     $fileName = $batchPrefix . '_batch_' . $batchIdx . '.txt';
     file_put_contents($fileName, implode(PHP_EOL, $bucket));
 }
-
-
-
-
-
-
-
