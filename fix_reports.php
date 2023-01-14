@@ -35,7 +35,7 @@ iterate_csv_files($path, function ($file) use (&$missingOwnersReports) {
 
 
 // Save $missingOwnersReports to a csv file
-$csv = fopen("$path/missing_owners.csv", "w");
+$csv = fopen("./missing_owners.csv", "w");
 fputcsv($csv, ["spaceName", "missingOwners"]);
 foreach ($missingOwnersReports as $report) {
     $report['missingOwners'] = implode(",", $report['missingOwners']);
