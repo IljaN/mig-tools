@@ -5,7 +5,7 @@
 php_sapi_name() === 'cli' ?: exit(1);
 
 if (count($argv) != 4) {
-    echo "Usage: $argv[0] BATCH_PREFIX BATCH_COUNT INPUT_PATH\n";
+    echo "Usage: $argv[0] BATCH_COUNT BATCH_PREFIX INPUT_PATH\n";
     exit(1);
 }
 
